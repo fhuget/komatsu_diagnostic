@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "komatsu_diagnostic" "\0"
+            VALUE "FileDescription", "komatsu" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "komatsu_diagnostic" "\0"
+            VALUE "InternalName", "komatsu" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "komatsu_diagnostic.exe" "\0"
-            VALUE "ProductName", "komatsu_diagnostic" "\0"
+            VALUE "OriginalFilename", "komatsu.exe" "\0"
+            VALUE "ProductName", "komatsu" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
