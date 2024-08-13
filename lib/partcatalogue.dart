@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:komatsu_diagnostic/home_screen.dart';
+import 'package:komatsu_diagnostic/pdf_view_screen.dart';
 
 class PartCataloguePage extends StatelessWidget {
   @override
@@ -26,16 +28,14 @@ class PartCataloguePage extends StatelessWidget {
               trailing: Icon(Icons.search),
               title: Text("Find Error Code"),
               onTap: () {
-                Navigator.pop(context);
-                Navigator.pushNamed(context, '/');
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
               },
             ),
             ListTile(
               trailing: Icon(Icons.book),
               title: Text("Part Catalogue"),
               onTap: () {
-                Navigator.pop(context);
-                // Tetap di halaman ini
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => PartCataloguePage()));
               },
             ),
             ListTile(
@@ -49,8 +49,49 @@ class PartCataloguePage extends StatelessWidget {
           ],
         ),
       ),
-      body: Center(
-        child: Text("Part Catalogue Page"),
+      body: GridView.builder(
+        padding: const EdgeInsets.all(8.0),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 4.0,
+          mainAxisSpacing: 4.0,
+        ),
+        itemCount: 1,
+        itemBuilder: (BuildContext context, int index) {
+          return InkWell(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const PdfViewScreen(
+                  title: "PC200-8M0",
+                  document: "assets/document/pc200-8m0.pdf",
+                ),
+              ),
+            ),
+            child: Card(
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              clipBehavior: Clip.hardEdge,
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Image.asset(
+                      "assets/images/pc200-8.jpeg",
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 4.0),
+                    child: Text("PC200-8M0",),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }
